@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -20,7 +20,36 @@
       padding: 20px;
       box-sizing: border-box;
     }
-    
+    .pause-btn {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      z-index: 1000;
+      background: rgba(40,40,40,0.85);
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    .pause-btn:hover {
+      background: rgba(88,101,242,0.9);
+      transform: scale(1.1);
+    }
+    .pause-btn:active {
+      transform: scale(0.95);
+    }
+    .pause-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+      transition: all 0.2s ease;
+    }
     .card {
       width: 360px;
       background: rgba(20,20,20,0.9);
@@ -32,7 +61,6 @@
       position: relative;
       overflow: hidden;
     }
-    
     .card::before {
       content: '';
       position: absolute;
@@ -43,20 +71,17 @@
       background: linear-gradient(90deg, #5865f2, #57f287, #5865f2);
       opacity: 0.8;
     }
-    
     .top {
       display: flex;
       align-items: center;
       gap: 18px;
       margin-bottom: 24px;
     }
-    
     .avatar-wrapper {
       position: relative;
       width: 80px; 
       height: 80px;
     }
-    
     .avatar {
       width: 100%; 
       height: 100%;
@@ -64,7 +89,6 @@
       border: 3px solid #36393f;
       transition: border-color 0.3s ease;
     }
-    
     .status-dot {
       position: absolute;
       bottom: 6px; 
@@ -76,14 +100,12 @@
       background: #747f8d;
       transition: background-color 0.3s ease;
     }
-    
     .user-info h1 { 
       font-size: 1.4rem; 
       margin: 0 0 4px 0; 
       font-weight: 600; 
       color: #ffffff;
     }
-    
     .views { 
       opacity: 0.7; 
       font-size: 0.85rem; 
@@ -92,17 +114,14 @@
       align-items: center;
       gap: 6px;
     }
-    
     .username { 
       color: #b9bbbe; 
       font-size: 0.9rem; 
       font-weight: 500;
     }
-    
     .sect { 
       margin-bottom: 24px; 
     }
-    
     .sect h3 {
       font-size: 0.75rem;
       font-weight: 600;
@@ -111,14 +130,12 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    
     .sect p {
       font-size: 0.95rem;
       color: #dcddde;
       line-height: 1.5;
       margin: 0;
     }
-    
     .activity {
       display: flex;
       background: #36393f;
@@ -127,12 +144,10 @@
       border: 1px solid #40444b;
       transition: all 0.3s ease;
     }
-    
     .activity:hover {
       background: #40444b;
       transform: translateY(-2px);
     }
-    
     .activity img {
       width: 52px;
       height: 52px;
@@ -140,25 +155,21 @@
       margin-right: 14px;
       object-fit: cover;
     }
-    
     .act-info { 
       flex: 1; 
     }
-    
     .act-info .act-title {
       font-size: 0.85rem;
       font-weight: 600;
       color: #1db954;
       margin-bottom: 2px;
     }
-    
     .act-info .act-song {
       font-size: 0.9rem;
       color: #dcddde;
       margin-bottom: 8px;
       font-weight: 500;
     }
-    
     .progress-bar {
       width: 100%;
       height: 4px;
@@ -166,15 +177,12 @@
       border-radius: 2px;
       overflow: hidden;
     }
-    
     .progress-fill {
       height: 100%;
       width: 0%;
       background: linear-gradient(90deg, #1db954, #1ed760);
       transition: width 0.5s ease;
     }
-
-    
     .btn-msg {
       margin-top: 20px;
       text-align: center;
@@ -190,20 +198,17 @@
       width: 100%;
       box-sizing: border-box;
     }
-    
     .btn-msg:hover { 
       background: linear-gradient(135deg, #4752c4, #3c4396);
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(88, 101, 242, 0.3);
     }
-    
     .loading {
       display: flex;
       align-items: center;
       gap: 8px;
       opacity: 0.7;
     }
-    
     .spinner {
       width: 16px;
       height: 16px;
@@ -212,12 +217,10 @@
       border-radius: 50%;
       animation: spin 1s linear infinite;
     }
-    
     @keyframes spin {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-    
     .error {
       color: #ed4245;
       font-size: 0.85rem;
@@ -227,15 +230,60 @@
       border-radius: 6px;
       border: 1px solid rgba(237, 66, 69, 0.2);
     }
-    
     .view-icon {
       width: 14px;
       height: 14px;
       opacity: 0.7;
     }
+    
+    /* Notificação de música */
+    .music-notification {
+      position: fixed;
+      top: 80px;
+      left: 24px;
+      background: rgba(29, 185, 84, 0.9);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+    .music-notification.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
+  <!-- Botão de pause/play no canto superior esquerdo -->
+  <button class="pause-btn" id="pause-btn" title="Tocar música">
+    <!-- Ícone de pause -->
+    <svg id="pause-icon" viewBox="0 0 24 24" style="display:none;">
+      <rect x="5" y="4" width="5" height="16" rx="2"/>
+      <rect x="14" y="4" width="5" height="16" rx="2"/>
+    </svg>
+    <!-- Ícone de play -->
+    <svg id="play-icon" viewBox="0 0 24 24">
+      <polygon points="6,4 20,12 6,20" />
+    </svg>
+  </button>
+
+  <!-- Notificação de música -->
+  <div class="music-notification" id="music-notification"></div>
+
+  <!-- Substitua o src pela URL da sua música -->
+  <audio id="custom-audio" preload="auto" autoplay loop>
+    <source src="Thiago Sub - Has to be you HOODTRAP.mp3" type="audio/mpeg">
+    <!-- Você pode adicionar mais formatos para compatibilidade -->
+    <!-- <source src="sua-musica.mp3" type="audio/mpeg"> -->
+    <!-- <source src="sua-musica.ogg" type="audio/ogg"> -->
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+
   <div class="card" data-tilt>
     <div class="top">
       <div class="avatar-wrapper">
@@ -261,8 +309,6 @@
       <h3>About Me</h3>
       <p id="about">too forgone</p>
     </div>
-
-
 
     <div class="sect">
       <h3>Activity</h3>
@@ -296,31 +342,97 @@
       perspective: 1000
     });
 
-    // Configuração
+    // Sistema de música
+    const audio = document.getElementById('custom-audio');
+    const pauseBtn = document.getElementById('pause-btn');
+    const pauseIcon = document.getElementById('pause-icon');
+    const playIcon = document.getElementById('play-icon');
+    const notification = document.getElementById('music-notification');
+
+    let isPlaying = false;
+
+    // Função para mostrar notificação
+    function showNotification(message) {
+      notification.textContent = message;
+      notification.classList.add('show');
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 2000);
+    }
+
+    // Função para atualizar o botão
+    function updatePauseBtn() {
+      if (isPlaying) {
+        pauseIcon.style.display = 'block';
+        playIcon.style.display = 'none';
+        pauseBtn.title = 'Pausar música';
+      } else {
+        pauseIcon.style.display = 'none';
+        playIcon.style.display = 'block';
+        pauseBtn.title = 'Tocar música';
+      }
+    }
+
+    // Event listener para o botão
+    pauseBtn.addEventListener('click', async function() {
+      try {
+        if (audio.paused) {
+          await audio.play();
+          showNotification('♪ Música iniciada');
+        } else {
+          audio.pause();
+          showNotification('⏸️ Música pausada');
+        }
+      } catch (error) {
+        console.error('Erro ao tocar música:', error);
+        showNotification('❌ Erro ao tocar música');
+      }
+    });
+
+    // Event listeners do áudio
+    audio.addEventListener('play', function() {
+      isPlaying = true;
+      updatePauseBtn();
+    });
+
+    audio.addEventListener('pause', function() {
+      isPlaying = false;
+      updatePauseBtn();
+    });
+
+    audio.addEventListener('ended', function() {
+      isPlaying = false;
+      updatePauseBtn();
+      showNotification('🎵 Música finalizada');
+    });
+
+    audio.addEventListener('error', function(e) {
+      console.error('Erro no áudio:', e);
+      showNotification('❌ Erro ao carregar música');
+    });
+
+    audio.addEventListener('loadstart', function() {
+      console.log('Carregando música...');
+    });
+
+    audio.addEventListener('canplay', function() {
+      console.log('Música pronta para tocar');
+    });
+
+    // Configuração do perfil Discord
     const DISCORD_ID = "1167948636437622797";
     const LANYARD_URL = `https://api.lanyard.rest/v1/users/${DISCORD_ID}`;
     
-    // Sistema de views usando localStorage como fallback para demonstração
-    // Em produção, você substituiria por uma API real
-    const VIEWS_KEY = 'discord_profile_views';
+    // Sistema de views (usando variável em memória)
+    let viewCount = 7210;
     
     function getViews() {
-      try {
-        return parseInt(localStorage.getItem(VIEWS_KEY)) || 7210;
-      } catch {
-        return 7210; // fallback se localStorage não estiver disponível
-      }
+      return viewCount;
     }
     
     function incrementViews() {
-      try {
-        const currentViews = getViews();
-        const newViews = currentViews + 1;
-        localStorage.setItem(VIEWS_KEY, newViews.toString());
-        return newViews;
-      } catch {
-        return getViews() + Math.floor(Math.random() * 3) + 1;
-      }
+      viewCount += Math.floor(Math.random() * 3) + 1;
+      return viewCount;
     }
 
     // Mapeamento de cores de status
@@ -331,20 +443,17 @@
       offline: '#747f8d'
     };
 
-
-
     async function updateViews() {
       try {
-        const viewCount = incrementViews();
+        const views = incrementViews();
         document.getElementById("views").innerHTML = `
           <svg class="view-icon" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
           </svg>
-          ${viewCount.toLocaleString()} views
+          ${views.toLocaleString()} views
         `;
       } catch (error) {
         console.error("Erro ao atualizar views:", error);
-        // Fallback visual
         document.getElementById("views").innerHTML = `
           <svg class="view-icon" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
@@ -353,8 +462,6 @@
         `;
       }
     }
-
-
 
     async function updateProfile() {
       try {
@@ -453,6 +560,18 @@
 
     // Inicialização
     async function init() {
+      // Atualiza estado inicial do botão
+      updatePauseBtn();
+      
+      // Tenta iniciar a música automaticamente
+      try {
+        await audio.play();
+        showNotification('🎵 Música iniciada automaticamente');
+      } catch (error) {
+        console.log('Autoplay bloqueado pelo navegador:', error);
+        // Alguns navegadores bloqueiam autoplay, então não mostramos erro
+      }
+      
       // Incrementa views ao carregar a página
       await updateViews();
       await updateProfile();
