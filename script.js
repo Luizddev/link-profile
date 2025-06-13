@@ -1,3 +1,4 @@
+
 // Inicializa o efeito tilt
     VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
       max: 8, 
@@ -229,14 +230,19 @@
       // Atualiza estado inicial do botão
       updatePauseBtn();
       
-      // Tenta iniciar a música automaticamente
-      try {
-        await audio.play();
-        showNotification('🎵 Música iniciada automaticamente');
-      } catch (error) {
-        console.log('Autoplay bloqueado pelo navegador:', error);
-        // Alguns navegadores bloqueiam autoplay, então não mostramos erro
-      }
+      const clickOverlay = document.getElementById("click-overlay");
+
+clickOverlay.addEventListener("click", async () => {
+  clickOverlay.style.display = "none";
+  try {
+    await audio.play();
+    showNotification('🎵 Música iniciada');
+  } catch (error) {
+    console.error("Erro ao tocar música:", error);
+    showNotification('❌ Erro ao tocar música');
+  }
+});
+
       
       // Incrementa views ao carregar a página
       await updateViews();
@@ -250,15 +256,11 @@
 
     // Inicia quando a página carrega
     document.addEventListener('DOMContentLoaded', init);
-    // Volume slider
-    volumeControl.addEventListener("input", () => {
-    audio.volume = volumeControl.value;
-    });
-    audio.volume = volumeControl.value;
 
+    // Previne ações de inspeção e cópia
 
     document.addEventListener("contextmenu", e => e.preventDefault());
-  document.addEventListener("keydown", e => {
+    document.addEventListener("keydown", e => {
     if (
       e.key === "F12" || // DevTools
       (e.ctrlKey && e.shiftKey && ["I", "C", "J"].includes(e.key)) || // Ctrl+Shift+I/C/J

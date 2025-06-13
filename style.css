@@ -286,17 +286,20 @@ body {
     width: 20px;
   }
 
-#volume-container {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+#click-overlay {
   position: fixed;
-  bottom: 93%;
-  left: 85px;
-  z-index: 9999;
-  background: rgba(40,40,40,0.85);
-  padding: 6px 12px;
-  border-radius: 10px;
-}
-
-#volume-control {
-  width: 120px;
+  z-index: 9999; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  background: black; 
+  color: #ffffffbf; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  text-shadow: 0 0 10px #ffffffbf;
+  
 }

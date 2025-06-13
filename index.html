@@ -11,6 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="click-overlay">
+    <h2>reveal</h2>
+  </div>
   <img src="assents/background.jpg" id="fundo">
   <!-- Botão de pause/play no canto superior esquerdo -->
   <button class="pause-btn" id="pause-btn" title="Tocar música">
@@ -27,19 +30,10 @@
 
   <!-- Notificação de música -->
   <div class="music-notification" id="music-notification"></div>
-
-  <!-- Substitua o src pela URL da sua música -->
-   <!-- CONTROLE DE VOLUME -->
-  <div id="volume-container">
-  <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1" />
-</div>
-
-
-  <!-- ÁUDIO -->
-  <audio id="custom-audio" preload="auto" autoplay loop preload="auto">
-    <source src="assents/BIG BLLAKK - Menina Que Não Sabe Quem Eu Sou Prod. Pedro Apoema.mp3" type="audio/mpeg">
-    Seu navegador não suporta o elemento de áudio.
-  </audio>
+  <audio id="custom-audio" preload="auto" loop>
+  <source src="https://cdn.discordapp.com/attachments/1376709822119940217/1376710047484088320/wait_a_minute__hoodtrap_mix_KChYax-IDI8.mp3?ex=684d62e5&is=684c1165&hm=77897626b81df03b9fdb0821fc25dbd063373f117c8f6865f2f772747bbb5a94&" type="audio/mpeg">
+  Seu navegador não suporta o elemento de áudio.
+</audio>
 
   <div class="card" data-tilt>
     <div class="top">
