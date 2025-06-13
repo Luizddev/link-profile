@@ -15,7 +15,8 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, #202225, #2f3136);
+      filter: blur(2px);
+      transform: scale(1.1);
       z-index: -1;
     }	
     .pause-btn {
@@ -284,3 +285,18 @@ body {
   .badges{
     width: 20px;
   }
+
+#volume-container {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  position: fixed;
+  bottom: 93%;
+  left: 85px;
+  z-index: 9999;
+  background: rgba(40,40,40,0.85);
+  padding: 6px 12px;
+  border-radius: 10px;
+}
+
+#volume-control {
+  width: 120px;
+}

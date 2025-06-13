@@ -11,6 +11,7 @@
     const audio = document.getElementById('custom-audio');
     const pauseBtn = document.getElementById('pause-btn');
     const pauseIcon = document.getElementById('pause-icon');
+    const volumeControl = document.getElementById('volume-control');
     const playIcon = document.getElementById('play-icon');
     const notification = document.getElementById('music-notification');
 
@@ -249,3 +250,20 @@
 
     // Inicia quando a página carrega
     document.addEventListener('DOMContentLoaded', init);
+    // Volume slider
+    volumeControl.addEventListener("input", () => {
+    audio.volume = volumeControl.value;
+    });
+    audio.volume = volumeControl.value;
+
+
+    document.addEventListener("contextmenu", e => e.preventDefault());
+  document.addEventListener("keydown", e => {
+    if (
+      e.key === "F12" || // DevTools
+      (e.ctrlKey && e.shiftKey && ["I", "C", "J"].includes(e.key)) || // Ctrl+Shift+I/C/J
+      (e.ctrlKey && e.key === "U") // Ctrl+U (ver código-fonte)
+    ) {
+      e.preventDefault();
+    }
+  });
