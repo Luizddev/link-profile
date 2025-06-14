@@ -10,6 +10,7 @@
 
     // Sistema de música
     const audio = document.getElementById('custom-audio');
+    audio.volume = 0.1; // Volume inicial
     const pauseBtn = document.getElementById('pause-btn');
     const pauseIcon = document.getElementById('pause-icon');
     const volumeControl = document.getElementById('volume-control');
@@ -17,7 +18,6 @@
     const notification = document.getElementById('music-notification');
 
     let isPlaying = false;
-
     // Função para mostrar notificação
     function showNotification(message) {
       notification.textContent = message;
