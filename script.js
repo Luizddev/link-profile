@@ -193,7 +193,7 @@ function getActivityIcon(activityName) {
     'Illustrator': 'https://www.adobe.com/content/dam/cc/icons/illustrator.svg',
     
     // Jogos populares
-    'FiveM': 'https://fivem.net/favicon.ico',
+    'FiveM': 'https://cdn2.steamgriddb.com/icon/fec8334a967c011a090d7df6723e851e/32/256x256.png',
     'VALORANT': 'https://playvalorant.com/favicon.ico',
     'Counter-Strike 2': 'https://www.counter-strike.net/favicon.ico',
     'CS2': 'https://www.counter-strike.net/favicon.ico',
