@@ -303,15 +303,3 @@ body {
   font-size: 20px;
   text-shadow: 0 0 10px #ffffffbf;
 }
-
-.user-tag {
-  background: transparent;
-  color: white;
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 12px;
-  letter-spacing: 0.5px;
-  display: inline-block;
-  border: 2px solid rgba(255, 255, 255, 0.2); 
-}

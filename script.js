@@ -157,7 +157,7 @@ async function updateProfile() {
 
     // Atualiza informações do usuário
     const displayName = data.discord_user.global_name || data.discord_user.username;
-    const userTag = "g0d"; // Tag fixa
+    const userTag = ""; // Tag fixa
     document.getElementById("name").innerHTML = `${displayName} <span id="tag" class="user-tag">${userTag}</span>`;
     document.getElementById("username").textContent = `@${data.discord_user.username}`;
 
