@@ -1,104 +1,40 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>alwards win's</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <link rel="shortcut icon" href="assents/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>167</title>
+    <link rel="shortcut icon" href="https://cdn.discordapp.com/emojis/1441648276083445915.webp?size=128" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="click-overlay">
-    <h2>reveal</h2>
-  </div>
-  <img src="https://i.pinimg.com/originals/7b/6d/c6/7b6dc6e8b7c0a9de2707d95b5d576fd8.gif" id="fundo">
-  <!-- Botão de pause/play no canto superior esquerdo -->
-  <button class="pause-btn" id="pause-btn" title="Tocar música">
-    <!-- Ícone de pause -->
-    <svg id="pause-icon" viewBox="0 0 24 24" style="display:none;">
-      <rect x="5" y="4" width="5" height="16" rx="2"/>
-      <rect x="14" y="4" width="5" height="16" rx="2"/>
-    </svg>
-    <!-- Ícone de play -->
-    <svg id="play-icon" viewBox="0 0 24 24">
-      <polygon points="6,4 20,12 6,20" />
-    </svg>
-  </button>
+    <div class="background-wrapper"></div>
 
-  <!-- Notificação de música -->
-  <div class="music-notification" id="music-notification"></div>
-  <audio id="custom-audio" preload="auto" loop>
-  <source src="assents/hesitations (strip).mp3" type="audio/mpeg">
-  Seu navegador não suporta o elemento de áudio.
-</audio>
+    <audio id="bgMusic" loop>
+        <source src="assents/hesitations (strip).mp3" type="audio/mpeg">
+    </audio>
 
-  <div class="card" data-tilt>
-    <div class="top">
-      <div class="avatar-wrapper">
-        <img src="https://cdn.discordapp.com/embed/avatars/0.png" class="avatar" id="avatar" alt="Avatar">
-        <div class="status-dot" id="status-dot"></div>
-      </div>
-      <div class="user-info">
-        <h1 id="name" class="loading">
-          <div class="spinner"></div>
-          Carregando...
-        </h1>
-        <!-- <img src="https://cdn3.emoji.gg/emojis/4306-subscriber-nitro.png" class="badges"> -->
-        <div class="views" id="views">
-          <svg class="view-icon" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-          </svg>
-          0 views
-        </div>
-        <div class="username" id="username">@...</div>
-      </div>
+    <div class="music-control" id="musicControl" title="Música">
+        <svg id="volumeIcon" viewBox="0 0 24 24">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
     </div>
+
+    <div class="stars" id="stars"></div>
     
-    <div class="sect">
-      <h3>About Me</h3>
-      <p id="about">07:06</p>
+    <div class="viewer-count">
+        <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+        <span id="viewCount">4299</span>
     </div>
 
-    <div class="sect">
-      <h3>Activity</h3>
-      <div class="activity" id="activity" style="display: none;">
-        <img src="" id="album" alt="Album Art">
-        <div class="act-info">
-          <div class="act-title" id="activity-type">...</div>
-          <div class="act-song" id="activity-details"></div>
-          <div class="progress-bar">
-            <div class="progress-fill" id="progress"></div>
-          </div>
+    <div class="container">
+        <div class="profiles-grid" id="profilesGrid">
+            <div class="loading">Carregando perfil...</div>
         </div>
-      </div>
-      <div id="no-activity" style="text-align: center; opacity: 0.7; font-size: 0.9rem;">
-        Nenhuma atividade detectada
-      </div>
     </div>
-
-    <!-- Nova aba Conexões -->
-    <div class="sect">
-  <h3>Conexões</h3>
-  <div class="connections">
-   <!-- <a href="https://x.com/lz01st" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="conn-icon">
-      <!-- Ícone Twitter SVG 
-      <svg role="img" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#1DA1F2">
-        <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124-4.086-.205-7.713-2.164-10.141-5.144-.423.724-.666 1.56-.666 2.475 0 1.708.87 3.216 2.188 4.099-.807-.026-1.566-.248-2.229-.616v.062c0 2.385 1.693 4.374 3.946 4.827-.413.11-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.6 3.417-1.68 1.316-3.808 2.101-6.102 2.101-.398 0-.79-.023-1.17-.067 2.179 1.397 4.768 2.212 7.557 2.212 9.054 0 14-7.496 14-13.986 0-.21 0-.423-.015-.633.962-.689 1.8-1.56 2.46-2.548l-.047-.02z"/>
-      </svg> 
-    </a> -->
-    <a href="https://steamcommunity.com/id/badendings/" target="_blank" rel="noopener noreferrer" aria-label="Steam" class="conn-icon" style="color: #fff;">
-  <i class="fab fa-steam" style="width: 28px; height: 28px; font-size: 30px;"></i>
-</a>
-  </div>
-</div>
-
-    <button class="btn-msg" id="message-btn">
-      Enviar mensagem
-    </button>
-  </div>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
