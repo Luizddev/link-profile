@@ -5,6 +5,7 @@
         }
 
         body {
+            cursor: url('assents/cursor.cur'), auto;
             font-family: 'Montserrat', sans-serif;
             background: #000;
             min-height: 100vh;
@@ -91,7 +92,7 @@
             padding: 40px 50px;
             text-align: center;
             transition: all 0.3s ease;
-            cursor: pointer;
+            cursor: normal;
             position: relative;
             transform-style: preserve-3d;
             perspective: 1000px;
