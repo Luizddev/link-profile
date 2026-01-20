@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>187</title>
+    <title>icqnic</title>
     <link rel="shortcut icon" href="https://cdn.discordapp.com/emojis/1441648276083445915.webp?size=128" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Quicksand:wght@600&family=Montserrat:wght@600&family=Rethink+Sans&display=swap">
@@ -11,13 +11,23 @@
     <meta content="lzwasted.shop made by @13md" property="og:description">
 </head>
 <body>
+    <!-- Tela de Reveal -->
+    <div class="reveal-screen" id="revealScreen">
+        <div class="reveal-content">
+            <p class="reveal-subtitle">reveal</p>
+            <div class="click-indicator">
+                <span>↓</span>
+            </div>
+        </div>
+    </div>
+
     <div class="background-wrapper"></div>
 
     <audio id="bgMusic" loop>
         <source src="assents/SpotiDownloader.com - Small Worlds - Mac Miller.mp3" type="audio/mpeg">
     </audio>
 
-    <div class="music-control" id="musicControl" title="Música">
+    <div class="music-control" id="musicControl" title="Música" style="opacity: 0; pointer-events: none;">
         <svg id="volumeIcon" viewBox="0 0 24 24">
             <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
         </svg>
@@ -25,7 +35,7 @@
 
     <div class="stars" id="stars"></div>
     
-    <div class="viewer-count">
+    <div class="viewer-count" style="opacity: 0; pointer-events: none;">
         <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
             <circle cx="12" cy="12" r="3"></circle>
@@ -33,7 +43,7 @@
         <span id="viewCount">4299</span>
     </div>
 
-    <div class="container">
+    <div class="container" style="opacity: 0;">
         <div class="profiles-grid" id="profilesGrid">
             <div class="loading">Carregando perfil...</div>
         </div>
