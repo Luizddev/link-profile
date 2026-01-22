@@ -220,6 +220,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const viewerCount = document.querySelector('.viewer-count');
     const container = document.querySelector('.container');
     
+    // Definir volume inicial da música (0.1 = 10%)
+    bgMusic.volume = 0.05;
+    
     revealScreen.addEventListener('click', () => {
         // Esconder tela de reveal
         revealScreen.classList.add('hidden');
