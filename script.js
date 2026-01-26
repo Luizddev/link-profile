@@ -331,4 +331,8 @@ document.addEventListener('dragstart', function(e) {
     return false;
 });
 
-console.log('Sistema de proteção ativado');
+function gerarNumero() {
+        return Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+    }
+
+    document.getElementById("randomNumber").textContent = gerarNumero();
